@@ -37,10 +37,10 @@ class MainScr(Screen):
         txt3 = Label(text='Введите ваше имя:', size_hint=(0.2,0.2))
         hl2.add_widget(txt3)
         hl2.add_widget(self.input2)
-        global grs1
+        global age
         global grs2
         vl.add_widget(hl2)
-        grs1 = self.input1.text
+        age = self.input1.text
         grs2 = self.input2.text     
 
         vl.add_widget(ScrButton(self, direction="left", goal="first",  text="Start", size_hint=(0.5,0.5), pos_hint={"center_x": 0.5, "center_y": 0.5} ))
@@ -98,7 +98,7 @@ class ThirdScr(Screen):
         layout.add_widget(lh2)
         layout.add_widget(ScrButton(self, direction="left", goal="fourth", text="Следующий", size_hint=(0.5, 0.2), pos_hint={"center_x": 0.5, "center_y": 0.5}))
         self.add_widget(layout)
-
+        test(P1, P2, P3, age)
 
 class MyApp(App):
     def build(self):
@@ -109,50 +109,10 @@ class MyApp(App):
         sm.add_widget(ThirdScr(name="third"))
         sm.add_widget(FourthScr(name="fourth"))
         return sm
-
-def ruffier_index(P1, P2, P3):
-    return (4 * (P1 + P2 + P3) - 200) / 10
-    
-def neud_level(age):
-    if age == 7 or age == 8:
-        return 21
-    if age == 9 or age == 10:
-        return 19.5
-    if age == 11 or age == 12:
-        return 18
-    if age == 13 or age == 14:
-        return 16.5
-    if age >= 15 or age <= 18:
-        return 15
-def test(P1, P2, P3, age):
-    global r_index
-    global level
-    r_index = ruffier_index(P1, P2, P3)
-    level = neud_level(age)
-    result = ruffier_result(r_index, level)
-    return (f"{txt_index}: {r_index}\n{txt_workheart}: {result}")
-def ruffier_result(r_index, level = 21):
-    if r_index >= level:
-        return 0
-    level -= 4
-    if r_index >= level:
-        return 1
-    level -= 5
-    if r_index >= level:
-        return 2
-    level -= 5.5
-    if r_index >= level:
-        return 3
-    return 4
-def ruffr(result):
-    result = txt_res[result]
-    return result
 class FourthScr(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
         vl = BoxLayout(orientation="vertical", spacing=8)
-
         ff = (txt_index + r_index + "\n" + txt_workheart + result)
         txt1 = Label(text=ff, size_hint_y=None, font_size="24sp",halign="left", valign="top", size_hint=(0.5, 0.2), pos_hint={"center_x": 0.5, "center_y": 0.5})
         vl.add_widget(txt1)
