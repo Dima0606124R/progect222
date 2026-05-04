@@ -96,12 +96,15 @@ class ThirdScr(Screen):
         layout.add_widget(test_label)
         layout.add_widget(lh1)
         layout.add_widget(lh2)
-        layout.add_widget(ScrButton(self, direction="left", goal="fourth", text="Следующий", size_hint=(0.5, 0.2), pos_hint={"center_x": 0.5, "center_y": 0.5}))
+        btn = ScrButton(self, direction="left", goal="fourth", text="Следующий", size_hint=(0.5, 0.2), pos_hint={"center_x": 0.5, "center_y": 0.5})
+        layout.add_widget(btn)
         self.add_widget(layout)
-        test(P1, P2, P3, age)
+        btn.on_press = test(P1, P2, P3, age)
+        
 
 class MyApp(App):
     def build(self):
+        
         sm = ScreenManager()
         sm.add_widget(MainScr(name="main"))
         sm.add_widget(FirstScr(name="first"))
@@ -118,8 +121,3 @@ class FourthScr(Screen):
         vl.add_widget(txt1)
         self.add_widget(vl)
 MyApp().run()
-
-
-
-
-
