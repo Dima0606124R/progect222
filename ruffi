@@ -1,9 +1,5 @@
 def ruffier_index(P1, P2, P3):
-    if P3 != '':
-        P1 = int(P1)
-        P2 = int(P2)
-        P3 = int(P3)
-        return (4 * (P1 + P2 + P3) - 200) / 10
+    return (4 * (P1 + P2 + P3) - 200) / 10
     
 def neud_level(age):
     age = int(age)
