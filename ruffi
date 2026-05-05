@@ -19,7 +19,11 @@ def test(P1, P2, P3, age):
     r_index = ruffier_index(P1, P2, P3)
     level = neud_level(age)
     result = ruffier_result(r_index, level)
-    return (f"{txt_index}: {r_index}\n{txt_workheart}: {result}")
+    results = txt_res[result]
+    r_index = str(r_index)
+    results = str(results)
+    return (txt_index,r_index ,txt_workheart,results)
+    
 def ruffier_result(r_index, level = 21):
     if r_index >= level:
         return 0
@@ -33,6 +37,15 @@ def ruffier_result(r_index, level = 21):
     if r_index >= level:
         return 3
     return 4
-def ruffr(result):
-    result = txt_res[result]
-    return result
+
+
+txt_index = "Ваш индекс Руфье: "
+txt_workheart = "Работоспособность сердца: "
+txt_nodata = '''
+нет данных для такого возраста'''
+txt_res = [] 
+txt_res.append('низкая. Срочно обратитесь к врачу!')
+txt_res.append('удовлетворительная. Обратитесь к врачу!')
+txt_res.append('средняя. Возможно, стоит дополнительно обследоваться у врача.')
+txt_res.append('выше среднего')
+txt_res.append('высокая')
