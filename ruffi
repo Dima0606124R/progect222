@@ -22,7 +22,7 @@ def test(P1, P2, P3, age):
     results = txt_res[result]
     r_index = str(r_index)
     results = str(results)
-    return (txt_index,r_index ,txt_workheart,results)
+    return (txt_index+r_index+"\n"+txt_workheart+"\n"+results)
     
 def ruffier_result(r_index, level = 21):
     if r_index >= level:
