@@ -17,8 +17,8 @@ class Seconds(Label):
         self.text = "Прошло секунд: " + str(self.current)
         self.start()
     def start(self):
-        Clock.schedule_interval(self.todo, 1)
-    def todo(self, dt):
+        Clock.schedule_interval(self.change, 1)
+    def change(self, dt):
         self.current += 1
         self.text = "Прошло секунд: " + str(self.current)
         if self.current >= self.total:
