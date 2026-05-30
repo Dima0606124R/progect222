@@ -8,9 +8,9 @@ from kivy.core.window import Window
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.image import Image
 from kivy.config import Config
-from instructions import *
-from ruffier import *
-from seconds import *
+from txt import *
+from ruffie import *
+from second import *
 from sits import *
 from runner import *
 
